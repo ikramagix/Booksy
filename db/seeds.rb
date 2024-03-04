@@ -8,10 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Article.destroy_all
+
 30.times do
     Article.create!(
       title: Faker::Book.title,
-      content: Faker::Lorem.paragraph(sentence_count: 5)
+      content: Faker::TvShows::Simpsons.quote
     )
   end
   
