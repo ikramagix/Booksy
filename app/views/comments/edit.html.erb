@@ -1,0 +1,14 @@
+<h2>Edit Comment</h2>
+
+<%= form_with(model: [@article, @comment], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', article_path(@article) %>

@@ -9,4 +9,14 @@
     <%= article.content %>
   </p>
 
+  <h2>Comments</h2>
+<%= render @article.comments %>
+
+<h3>Add a comment:</h3>
+<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.text_area :body %>
+    <%= form.submit %>
+  </p>
+<% end %>
 </div>

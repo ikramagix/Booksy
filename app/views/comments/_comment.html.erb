@@ -1,0 +1,9 @@
+<div class="comment">
+  <p>
+    <%= comment.user.email %> has commented: "<%= comment.body %>" at <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>.
+  </p>
+  <% if user_signed_in? && comment.user == current_user %>
+    <%= link_to 'Edit', edit_article_comment_path(comment.article, comment), class: 'btn btn-link' %>
+    <%= link_to 'Delete', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <% end %>
+</div>

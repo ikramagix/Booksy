@@ -13,6 +13,18 @@ class CommentsController < ApplicationController
         redirect_to @article, alert: 'Unable to add comment.'
       end
     end
+
+    def edit
+        @article = @comment.article
+      end
+    
+      def update
+        if @comment.update(comment_params)
+          redirect_to @comment.article, notice: 'Comment was successfully updated.'
+        else
+          render :edit
+        end
+      end    
   
     def destroy
       @comment.destroy

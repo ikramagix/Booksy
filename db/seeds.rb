@@ -12,7 +12,7 @@ Article.destroy_all
 User.destroy_all
 
 5.times do
-  User.create!(
+  user = User.create!(
     email: Faker::Internet.email,
     password: 'password',
     password_confirmation: 'password'
@@ -21,10 +21,20 @@ end
 
 User.all.each do |user|
   5.times do
-    user.articles.create!(
+    article = user.articles.create!(
       title: Faker::Book.title,
       content: Faker::TvShows::Simpsons.quote,
       private: [true, false].sample
     )
+    
+    rand(1..5).times do 
+      Comment.create!(
+        body: Faker::TvShows::Simpsons.quote,
+        user: User.all.sample,
+        article: article
+      )
+    end
   end
 end
+
+puts "Created #{User.count} users, #{Article.count} articles, and #{Comment.count} comments."
