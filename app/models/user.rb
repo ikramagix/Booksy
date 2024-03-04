@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :articles
+  
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
 end
