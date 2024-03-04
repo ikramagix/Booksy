@@ -1,4 +1,5 @@
 <%= button_tag 'Compter les articles', type: 'button', id: 'count-articles-btn', class: 'btn btn-info mb-3' %>
+<span id="articles-count"></span>
 
 <table class="table table-hover">
   <thead>
@@ -20,5 +21,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= javascript_importmap_tags %>
