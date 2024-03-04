@@ -28,9 +28,6 @@ To get this application running on your local machine, follow these steps:
    cd Booksy
    ```
 
-   ```sh
-   ```
-
 2. Install the required gems
 
    ```sh
