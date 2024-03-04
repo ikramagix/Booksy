@@ -9,12 +9,12 @@
     <ul class="navbar-nav ml-auto nav-fill">
       <% if user_signed_in? %>
       <li class="nav-item">
-      <%= link_to "Create article", new_article_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
       <button type="button" class="btn btn-floating" data-mdb-ripple-color="light">
         <%= link_to "Edit profile", edit_user_registration_path, class: "nav-link" %>
       </button>
+    </li>
+      <li class="nav-item">
+      <%= link_to "Create article", new_article_path, class: "nav-link" %>
     </li>
         <li class="nav-item">
         <button type="button" class="btn btn-floating" data-mdb-ripple-color="light">

@@ -1,4 +1,4 @@
-<%= form_with(model: article) do |form| %>
+<%= form_with(model: article, local: true) do |form| %>
   <% if article.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -19,6 +19,11 @@
   <div>
     <%= form.label :content, style: "display: block" %>
     <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+  <%= form.label :private %>
+  <%= form.check_box :private %>
   </div>
 
   <div>

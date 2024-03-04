@@ -23,7 +23,8 @@ User.all.each do |user|
   5.times do
     user.articles.create!(
       title: Faker::Book.title,
-      content: Faker::TvShows::Simpsons.quote
+      content: Faker::TvShows::Simpsons.quote,
+      private: [true, false].sample
     )
   end
 end

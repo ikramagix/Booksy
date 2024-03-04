@@ -1,12 +1,10 @@
-<%= button_tag 'Get items quantity', type: 'button', id: 'count-articles-btn', class: 'btn btn-info mb-3' %>
-<span id="articles-count"></span>
-
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Title</th>
       <th>Content</th>
       <th>Author</th>
+      <th>Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,12 +12,26 @@
     <% @articles.each do |article| %>
       <tr class="article-row">
         <td><%= article.title %></td>
-        <td><%= article.content %></td>
-        <td><%= article.user_id %></td>
+        <td><%= truncate(article.content, length: 100) %></td>
+        <td><%= article.user.email %></td> 
+        <td>
+          <% if article.private? %>
+            Private
+          <% else %>
+            Public
+          <% end %>
+        </td>
         <td><%= link_to 'Show', article, class: 'btn btn-primary' %></td>
-        <td><%= link_to 'Edit', edit_article_path(article), class: 'btn btn-warning' %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <% if user_signed_in? && article.user == current_user %>
+          <td><%= link_to 'Edit', edit_article_path(article), class: 'btn btn-warning' %></td>
+          <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <% else %>
+          <td colspan="2">Restricted</td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= button_tag 'Get items quantity', type: 'button', id: 'count-articles-btn', class: 'btn btn-info mb-3' %>
+<span id="articles-count"></span>
