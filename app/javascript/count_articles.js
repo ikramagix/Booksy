@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
       countButton.addEventListener("click", () => {
         const articles = document.querySelectorAll(".article-row");
         const countDisplay = document.getElementById("articles-count");
-        countDisplay.textContent = `Articles listés : ${articles.length}`;
+        countDisplay.textContent = `Listed items : ${articles.length}`;
       });
     }
   });
