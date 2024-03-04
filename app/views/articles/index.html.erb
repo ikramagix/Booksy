@@ -1,3 +1,5 @@
+<%= button_tag 'Compter les articles', type: 'button', id: 'count-articles-btn', class: 'btn btn-info mb-3' %>
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -8,7 +10,7 @@
   </thead>
   <tbody>
     <% @articles.each do |article| %>
-      <tr>
+      <tr class="article-row">
         <td><%= article.title %></td>
         <td><%= article.content %></td>
         <td><%= link_to 'Show', article, class: 'btn btn-primary' %></td>
@@ -18,3 +20,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= javascript_importmap_tags %>
