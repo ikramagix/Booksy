@@ -9,11 +9,21 @@
 #   end
 
 Article.destroy_all
+User.destroy_all
 
-30.times do
-    Article.create!(
+5.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: 'password',
+    password_confirmation: 'password'
+  )
+end
+
+User.all.each do |user|
+  5.times do
+    user.articles.create!(
       title: Faker::Book.title,
       content: Faker::TvShows::Simpsons.quote
     )
   end
-  
+end
