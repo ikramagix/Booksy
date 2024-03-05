@@ -17,7 +17,7 @@ To get this application running on your local machine, follow these steps:
 
 - Ruby (version as specified in `.ruby-version`)
 - Rails (version 7.1.3.2 or newer)
-- SQLite3 (or configured database in `config/database.yml`)
+- PostGreSQL (or configured database in `config/database.yml`)
 
 ### Installation
 
